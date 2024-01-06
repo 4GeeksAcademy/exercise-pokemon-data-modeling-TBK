@@ -7,23 +7,23 @@ from eralchemy2 import render_er
 
 Base = declarative_base()
 
-class Person(Base):
-    __tablename__ = 'person'
+class Pokemon(Base):
+    __tablename__ = 'pokemon'
     # Here we define columns for the table person
     # Notice that each column is also a normal Python instance attribute.
-    id = Column(Integer, primary_key=True)
-    name = Column(String(250), nullable=False)
+    PokemonID = Column(Integer, primary_key=True)
+    Name = Column(String(250), nullable=False)
 
-class Address(Base):
-    __tablename__ = 'address'
+class PokemonData(Base):
+    __tablename__ = 'pokemondata'
     # Here we define columns for the table address.
     # Notice that each column is also a normal Python instance attribute.
-    id = Column(Integer, primary_key=True)
-    street_name = Column(String(250))
-    street_number = Column(String(250))
-    post_code = Column(String(250), nullable=False)
-    person_id = Column(Integer, ForeignKey('person.id'))
-    person = relationship(Person)
+    PokemonID = Column(Integer, primary_key=True, nullable=False)
+    Name = Column(String(25), nullable=False)
+    Type_1 = Column(String(10), nullable=False)
+    Type_2 = Column(String(10), nullable=True)
+    Height = Column(Integer, primary_key=True, nullable=False)
+    Weight = Column(Integer, primary_key=True, nullable=False)
 
     def to_dict(self):
         return {}
